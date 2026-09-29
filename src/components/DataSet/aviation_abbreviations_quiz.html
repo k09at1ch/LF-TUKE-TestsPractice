@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviation Abbreviations Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Soft sky blue background */
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn-option {
+            transition: all 0.2s;
+        }
+        .btn-option:active {
+            transform: scale(0.98);
+        }
+        /* Hide scrollbar for cleaner look if content overflows slightly */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col items-center py-10 px-4">
+
+    <header class="text-center mb-8">
+        <div class="flex justify-center items-center gap-3 mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Aviation Lingo</h1>
+        </div>
+        <p class="text-slate-500 font-medium">Test your knowledge of standard aviation abbreviations.</p>
+    </header>
+
+    <main class="w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden mb-8 fade-in">
+        
+        <div id="start-screen" class="p-8 text-center flex flex-col items-center justify-center min-h-[400px]">
+            <div class="bg-blue-50 p-4 rounded-full mb-6 text-blue-500 shadow-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Ready to fly?</h2>
+            <p class="text-slate-500 mb-8 max-w-xs">You'll be tested on all available abbreviations in a random order.</p>
+            <div class="text-sm text-slate-400 mb-6 font-medium">
+                Total abbreviations: <span id="total-count-start" class="text-blue-600">0</span>
+            </div>
+            <button onclick="startQuiz()" class="w-full py-4 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-blue-300">
+                Start Quiz
+            </button>
+        </div>
+
+        <div id="quiz-screen" class="hidden flex-col min-h-[400px]">
+            <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+                <span class="text-sm font-semibold text-slate-500 uppercase tracking-wider">Question <span id="current-q-num">1</span> of <span id="total-q-num">10</span></span>
+                <span class="text-sm font-semibold bg-blue-100 text-blue-700 py-1 px-3 rounded-full">Score: <span id="current-score">0</span></span>
+            </div>
+            
+            <div class="p-6 md:p-8 flex-grow flex flex-col justify-center">
+                <div class="text-center mb-8">
+                    <span class="text-sm font-medium text-slate-400 uppercase mb-2 block">What does this stand for?</span>
+                    <h2 id="question-text" class="text-5xl font-black text-slate-800 tracking-tight drop-shadow-sm">ABBR</h2>
+                </div>
+
+                <div id="options-container" class="grid grid-cols-1 gap-3">
+                    <!-- Options injected here -->
+                </div>
+            </div>
+            
+            <!-- Progress bar -->
+            <div class="h-1.5 w-full bg-slate-100">
+                <div id="progress-bar" class="h-full bg-blue-500 transition-all duration-300 ease-out" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="hidden p-8 text-center flex flex-col items-center justify-center min-h-[400px]">
+            <div class="bg-green-50 p-4 rounded-full mb-6 text-green-500 shadow-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h2 class="text-3xl font-bold mb-2 text-slate-800">Quiz Completed!</h2>
+            <p class="text-slate-500 mb-6">Here is how you performed.</p>
+            
+            <div class="bg-slate-50 rounded-2xl p-6 w-full mb-8 border border-slate-100">
+                <div class="text-5xl font-black text-blue-600 mb-1" id="final-score">0</div>
+                <div class="text-sm font-medium text-slate-400 uppercase tracking-wider">Correct Answers</div>
+                <div class="mt-4 text-sm font-semibold text-slate-600">
+                    Accuracy: <span id="accuracy-percentage" class="text-blue-500">0%</span>
+                </div>
+            </div>
+
+            <button onclick="startQuiz()" class="w-full py-4 px-6 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold text-lg shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-slate-300">
+                Restart Quiz
+            </button>
+        </div>
+    </main>
+
+    <section class="w-full max-w-lg bg-white rounded-2xl shadow-md overflow-hidden fade-in">
+        <button onclick="toggleDataSection()" class="w-full px-6 py-4 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors focus:outline-none">
+            <span class="font-semibold text-slate-700 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                </svg>
+                Add New Abbreviations
+            </span>
+            <svg id="chevron-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+        
+        <div id="data-section" class="hidden p-6 border-t border-slate-100">
+            <p class="text-sm text-slate-500 mb-3">Paste a JSON array containing new abbreviations. Format must match:</p>
+            <pre class="bg-slate-800 text-green-400 p-3 rounded-lg text-xs font-mono mb-4 overflow-x-auto shadow-inner">
+[
+  {"abbr": "ICAO", "en": "International Civil Aviation Organization"}
+]</pre>
+            <textarea id="json-input" rows="4" class="w-full p-3 border border-slate-300 rounded-xl mb-4 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm font-mono" placeholder="Paste JSON here..."></textarea>
+            
+            <div id="data-feedback" class="text-sm font-medium hidden mb-4 p-3 rounded-lg"></div>
+
+            <button onclick="addAbbreviations()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400">
+                Import Abbreviations
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Initial Dataset
+        let dataset = [
+            {"abbr": "AAL", "en": "Above aerodrome level"},
+            {"abbr": "ABM", "en": "Abeam"},
+            {"abbr": "ACC", "en": "Area control centre or Area control"},
+            {"abbr": "ACFT", "en": "Aircraft"},
+            {"abbr": "AD", "en": "Aerodrome"},
+            {"abbr": "ADF", "en": "Automatic direction finding equipment"},
+            {"abbr": "ADIZ", "en": "Air defence identification zone"},
+            {"abbr": "AFIS", "en": "Aerodrome flight information service"},
+            {"abbr": "AFTN", "en": "Aeronautical fixed telecommunication network"},
+            {"abbr": "AGL", "en": "Above ground level"},
+            {"abbr": "AIC", "en": "Aeronautical information circular"},
+            {"abbr": "AIP", "en": "Aeronautical information publication"},
+            {"abbr": "AIRAC", "en": "Aeronautical information regulation and control"},
+            {"abbr": "AIS", "en": "Aeronautical information services"},
+            {"abbr": "ALERFA", "en": "Alert phase"},
+            {"abbr": "ALT", "en": "Altitude"},
+            {"abbr": "ALTN", "en": "Alternate (aerodrome)"},
+            {"abbr": "AP", "en": "Airport"},
+            {"abbr": "APP", "en": "Approach control office or Approach control service"},
+            {"abbr": "ARR", "en": "Arrival"},
+            {"abbr": "ASC", "en": "Ascent or ascending"},
+            {"abbr": "ASDA", "en": "Accelerate-stop distance available"},
+            {"abbr": "ASPH", "en": "Asphalt"},
+            {"abbr": "ATC", "en": "Air traffic control"},
+            {"abbr": "ATIS", "en": "Automatic terminal information service"},
+            {"abbr": "ATS", "en": "Air traffic services"},
+            {"abbr": "AWY", "en": "Airway"},
+            {"abbr": "BA", "en": "Braking action"},
+            {"abbr": "BKN", "en": "Broken"},
+            {"abbr": "BR", "en": "Mist"},
+            {"abbr": "CAT", "en": "Category / Clear air turbulence"},
+            {"abbr": "CB", "en": "Cumulonimbus"},
+            {"abbr": "CL", "en": "Centre line"},
+            {"abbr": "CLD", "en": "Cloud"},
+            {"abbr": "CLR", "en": "Clear or cleared"},
+            {"abbr": "CLSD", "en": "Closed"},
+            {"abbr": "CONC", "en": "Concrete"},
+            {"abbr": "COND", "en": "Condition"},
+            {"abbr": "CONT", "en": "Continue or continued"},
+            {"abbr": "CPL", "en": "Current flight plan"},
+            {"abbr": "CTR", "en": "Control zone"},
+            {"abbr": "CUST", "en": "Customs"},
+            {"abbr": "CWY", "en": "Clearway"},
+            {"abbr": "DA", "en": "Decision altitude"},
+            {"abbr": "DEP", "en": "Depart or departure"}
+        ];
+
+        // State variables
+        let currentQuizData = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let isAnswered = false;
+
+        // Utility: Shuffle an array (Fisher-Yates)
+        function shuffleArray(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // Initialize UI
+        document.getElementById('total-count-start').textContent = dataset.length;
+
+        function startQuiz() {
+            // Reset state
+            currentQuestionIndex = 0;
+            score = 0;
+            isAnswered = false;
+            currentQuizData = shuffleArray([...dataset]); // Deep copy and shuffle
+
+            // Update UI Counters
+            document.getElementById('total-q-num').textContent = currentQuizData.length;
+            document.getElementById('current-score').textContent = score;
+
+            // Switch Screens
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            document.getElementById('quiz-screen').classList.add('flex');
+
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            isAnswered = false;
+            
+            // Update Progress UI
+            const questionNum = currentQuestionIndex + 1;
+            document.getElementById('current-q-num').textContent = questionNum;
+            const progressPercent = ((currentQuestionIndex) / currentQuizData.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+
+            const currentItem = currentQuizData[currentQuestionIndex];
+            document.getElementById('question-text').textContent = currentItem.abbr;
+
+            // Generate options (1 correct, 3 random incorrect)
+            let options = [currentItem];
+            
+            // Filter out the current item to pick wrong answers
+            let availableWrongAnswers = dataset.filter(item => item.abbr !== currentItem.abbr);
+            
+            // Ensure we have enough wrong answers
+            let numWrongAnswers = Math.min(3, availableWrongAnswers.length);
+            
+            // Shuffle wrong answers and pick the required amount
+            availableWrongAnswers = shuffleArray(availableWrongAnswers);
+            for(let i=0; i < numWrongAnswers; i++) {
+                options.push(availableWrongAnswers[i]);
+            }
+
+            // Shuffle the final 4 options
+            options = shuffleArray(options);
+
+            // Render buttons
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = ''; // Clear previous
+
+            options.forEach(option => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-option w-full text-left p-4 rounded-xl border-2 border-slate-200 text-slate-700 font-medium hover:border-blue-400 hover:bg-blue-50 focus:outline-none bg-white';
+                btn.textContent = option.en;
+                btn.onclick = () => handleAnswer(option.abbr === currentItem.abbr, btn, currentItem.en);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(isCorrect, clickedBtn, correctAnswerText) {
+            if (isAnswered) return; // Prevent multiple clicks
+            isAnswered = true;
+
+            const allButtons = document.querySelectorAll('.btn-option');
+
+            if (isCorrect) {
+                score++;
+                document.getElementById('current-score').textContent = score;
+                clickedBtn.classList.remove('border-slate-200', 'hover:border-blue-400', 'hover:bg-blue-50');
+                clickedBtn.classList.add('border-green-500', 'bg-green-100', 'text-green-800');
+                
+                // Add a checkmark icon
+                clickedBtn.innerHTML = `<div class="flex justify-between items-center w-full"><span>${clickedBtn.textContent}</span><svg class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>`;
+            } else {
+                clickedBtn.classList.remove('border-slate-200', 'hover:border-blue-400', 'hover:bg-blue-50');
+                clickedBtn.classList.add('border-red-500', 'bg-red-100', 'text-red-800');
+                
+                // Add an X icon
+                clickedBtn.innerHTML = `<div class="flex justify-between items-center w-full"><span>${clickedBtn.textContent}</span><svg class="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></div>`;
+
+                // Highlight correct answer
+                allButtons.forEach(btn => {
+                    if (btn.textContent === correctAnswerText || btn.textContent.includes(correctAnswerText)) {
+                        btn.classList.remove('border-slate-200', 'hover:border-blue-400', 'hover:bg-blue-50');
+                        btn.classList.add('border-green-500', 'bg-green-50', 'text-green-700');
+                    }
+                });
+            }
+
+            // Disable all buttons to show they are inactive
+            allButtons.forEach(btn => {
+                btn.style.cursor = 'default';
+                btn.onclick = null;
+            });
+
+            // Wait 1.5s then proceed
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < currentQuizData.length) {
+                    loadQuestion();
+                } else {
+                    showResults();
+                }
+            }, 1500);
+        }
+
+        function showResults() {
+            document.getElementById('progress-bar').style.width = '100%';
+            
+            setTimeout(() => {
+                document.getElementById('quiz-screen').classList.add('hidden');
+                document.getElementById('quiz-screen').classList.remove('flex');
+                document.getElementById('result-screen').classList.remove('hidden');
+
+                document.getElementById('final-score').textContent = `${score}/${currentQuizData.length}`;
+                
+                const accuracy = currentQuizData.length > 0 ? Math.round((score / currentQuizData.length) * 100) : 0;
+                document.getElementById('accuracy-percentage').textContent = `${accuracy}%`;
+                
+                let accColor = 'text-blue-500';
+                if(accuracy >= 90) accColor = 'text-green-500';
+                else if (accuracy < 50) accColor = 'text-red-500';
+                
+                document.getElementById('accuracy-percentage').className = accColor;
+
+            }, 300); // slight delay for smooth transition
+        }
+
+        function toggleDataSection() {
+            const section = document.getElementById('data-section');
+            const icon = document.getElementById('chevron-icon');
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                section.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function addAbbreviations() {
+            const textarea = document.getElementById('json-input');
+            const feedback = document.getElementById('data-feedback');
+            const val = textarea.value.trim();
+
+            feedback.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+
+            if (!val) {
+                feedback.textContent = 'Please paste some JSON first.';
+                feedback.classList.add('bg-red-100', 'text-red-800');
+                feedback.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const parsedData = JSON.parse(val);
+
+                // Validation
+                if (!Array.isArray(parsedData)) {
+                    throw new Error("Input must be a JSON array.");
+                }
+
+                let addedCount = 0;
+                for (const item of parsedData) {
+                    if (item && typeof item === 'object' && item.abbr && item.en && typeof item.abbr === 'string' && typeof item.en === 'string') {
+                        // Check for duplicates before adding
+                        const exists = dataset.find(d => d.abbr.toUpperCase() === item.abbr.toUpperCase());
+                        if(!exists) {
+                           dataset.push({
+                                abbr: item.abbr.toUpperCase(),
+                                en: item.en
+                            });
+                            addedCount++;
+                        }
+                    } else {
+                         throw new Error("Invalid object format. Each object must have string 'abbr' and 'en' properties.");
+                    }
+                }
+
+                if (addedCount > 0) {
+                    feedback.textContent = `Successfully added ${addedCount} new abbreviation(s). Total is now ${dataset.length}.`;
+                    feedback.classList.add('bg-green-100', 'text-green-800');
+                    textarea.value = ''; // clear input
+                    
+                    // Update start screen count
+                    document.getElementById('total-count-start').textContent = dataset.length;
+                } else {
+                    feedback.textContent = `No new abbreviations added. They might be duplicates or invalid format.`;
+                    feedback.classList.add('bg-red-100', 'text-red-800');
+                }
+                
+            } catch (error) {
+                feedback.textContent = `Error: ${error.message}`;
+                feedback.classList.add('bg-red-100', 'text-red-800');
+            }
+
+            feedback.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

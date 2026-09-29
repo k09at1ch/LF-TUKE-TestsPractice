@@ -1,0 +1,12 @@
+:root {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+ font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
