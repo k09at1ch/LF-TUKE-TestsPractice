@@ -1,21 +1,28 @@
-import './App.css'
-import { English } from '../Main/English'
-import {LP} from "../Main/LP"
-import { LaDI } from '../Main/LaDI'
-import { Ekonomika } from '../Main/Ekonomika'
+import "./App.css";
+import { English } from "../Main/eng/English";
+import { LP } from "../Main/LP/LP";
+import { LaDI } from "../Main/LaDI/LaDI";
+import { Ekonomika } from "../Main/eko/Ekonomika";
+import "./App.css";
 function App() {
-
   return (
     <>
-      <div>
-        APP
-        <English/>
-        <LP/>
-        <LaDI/>
-        <Ekonomika/>
-      </div>
+      <ul className="componentList" style={{padding: 0}}>
+        <li className="componentComponent">
+          <English />
+        </li>
+        <li className="componentComponent">
+          <LP />
+        </li>
+        <li className="componentComponent">
+          <LaDI />
+        </li>
+        <li className="componentComponent">
+          <Ekonomika />
+        </li>
+      </ul>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

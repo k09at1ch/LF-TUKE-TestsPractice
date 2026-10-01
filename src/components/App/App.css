@@ -1,0 +1,11 @@
+.componentList{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.componentComponent{
+    width:min-content;
+    height: 400px;
+}
