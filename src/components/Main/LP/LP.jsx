@@ -1,4 +1,4 @@
-import Questions from "../../DataSet/Eng.json";
+import Questions from "../../DataSet/LP.json";
 import { useState } from "react";
 import "./lp.css";
 
@@ -12,7 +12,8 @@ export function LP() {
   const [question, setQuestion] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState();
   const [answer, setAnswer] = useState([]);
-  const [answerColor, setColorAnswer] = useState();
+  
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [correctAnswerAmount, setCorrectAnswerAmount] = useState(0);
   const [questionsAskedAmount, setQuestionsAskedAmount] = useState(0);
 
@@ -23,7 +24,6 @@ export function LP() {
 
     answerCopy.push(currentQuestionsList[currentIndex].answer);
 
-    // 2. Додаємо 3 варіанти з загального датасету (engQuestions)
     for (let i = 0; i < 3; i++) {
       const tempIndex = getDynamicRandomIndex(Questions.length);
       const wrongAnswer = Questions[tempIndex].answer;
@@ -40,8 +40,11 @@ export function LP() {
   };
 
   const answerSelection = (ans) => {
+  
+    if (selectedAnswer) return;
+
+    setSelectedAnswer(ans); 
     const isCorrect = ans === correctAnswer;
-    setColorAnswer(isCorrect ? "lime" : "red");
 
     const updatedQuestions = aviableQuestions.filter(
       (q) => q.answer !== correctAnswer,
@@ -50,7 +53,7 @@ export function LP() {
     setAviableQuestions(updatedQuestions);
 
     setTimeout(() => {
-      setColorAnswer("");
+      setSelectedAnswer(null); 
       setQuestionsAskedAmount((prev) => prev + 1);
 
       if (isCorrect) {
@@ -75,6 +78,11 @@ export function LP() {
   const startTest = () => {
     if (isGoing) return;
 
+    setFinished(false);
+    setCorrectAnswerAmount(0);
+    setQuestionsAskedAmount(0);
+    setSelectedAnswer(null);
+
     const firstIndex = getDynamicRandomIndex(Questions.length);
     setAviableQuestions(Questions);
     setQuestion(Questions[firstIndex].question);
@@ -87,8 +95,9 @@ export function LP() {
   return (
     <div>
       =====================================================================
-      <h1
-        className="h"
+      <h1 className="h">LP</h1>
+      <button
+        onClick={startTest}
         style={{
           width: "fit-content",
           height: "fit-content",
@@ -98,29 +107,46 @@ export function LP() {
           backgroundColor: "pink",
         }}
       >
-        LP
-      </h1>
-      <button onClick={startTest}>Start test</button>
+        Start test
+      </button>
       <br />
       =====================================================================
       {isGoing ? (
         <div>
-          <h2>{question}</h2>
+          <h2>
+            <span style={{ fontWeight: 400, fontSize: "75%" }}>Question:</span>{" "}
+            {question}
+          </h2>
           <h3>
             Questions answered {questionsAskedAmount}/{Questions.length}
+            <br />
+            score: {correctAnswerAmount}/{questionsAskedAmount}
           </h3>
           <ul style={{ padding: 0 }} className="buttonList">
-            {answer.map((ans, idButton) => (
-              <li key={idButton}>
-                <button
-                  style={{ backgroundColor: answerColor }}
-                  className="button"
-                  onClick={() => answerSelection(ans)}
-                >
-                  {ans}
-                </button>
-              </li>
-            ))}
+            {answer.map((ans, idButton) => {
+            
+              let btnColor = "";
+              if (selectedAnswer) {
+                if (ans === correctAnswer) {
+                  btnColor = "lime"; 
+                } else if (ans === selectedAnswer) {
+                  btnColor = "red"; 
+                }
+              }
+
+              return (
+                <li key={idButton}>
+                  <button
+                    style={{ backgroundColor: btnColor }}
+                    className="button"
+                    onClick={() => answerSelection(ans)}
+                    disabled={!!selectedAnswer}
+                  >
+                    {ans}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
           =====================================================================
         </div>

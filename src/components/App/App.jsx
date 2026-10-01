@@ -3,6 +3,7 @@ import { English } from "../Main/eng/English";
 import { LP } from "../Main/LP/LP";
 import { LaDI } from "../Main/LaDI/LaDI";
 import { Ekonomika } from "../Main/eko/Ekonomika";
+import { CZ } from "../Main/CZ/CZ";
 import "./App.css";
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </li>
         <li className="componentComponent">
           <Ekonomika />
+        </li>
+        <li className="componentComponent">
+          <CZ />
         </li>
       </ul>
     </>

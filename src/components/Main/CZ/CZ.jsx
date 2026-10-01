@@ -1,12 +1,12 @@
-import Questions from "../../DataSet/Eng.json";
+import Questions from "../../DataSet/ukr_cze_database.json";
 import { useState } from "react";
-import "./eng.css";
+import "./CZ.css";
 
 const getDynamicRandomIndex = (currentLength) => {
   return Math.floor(Math.random() * currentLength);
 };
 
-export function English() {
+export function CZ() {
   const [isGoing, setIsGoing] = useState(false);
   const [aviableQuestions, setAviableQuestions] = useState(Questions);
   const [question, setQuestion] = useState(null);
@@ -40,7 +40,7 @@ export function English() {
   };
 
   const answerSelection = (ans) => {
-  
+
     if (selectedAnswer) return;
 
     setSelectedAnswer(ans); 
@@ -95,7 +95,7 @@ export function English() {
   return (
     <div>
       =====================================================================
-      <h1 className="h">ENG</h1>
+      <h1 className="h">CZ words</h1>
       <button
         onClick={startTest}
         style={{
@@ -124,7 +124,6 @@ export function English() {
           </h3>
           <ul style={{ padding: 0 }} className="buttonList">
             {answer.map((ans, idButton) => {
-            
               let btnColor = "";
               if (selectedAnswer) {
                 if (ans === correctAnswer) {
@@ -140,7 +139,7 @@ export function English() {
                     style={{ backgroundColor: btnColor }}
                     className="button"
                     onClick={() => answerSelection(ans)}
-                    disabled={!!selectedAnswer}
+                    disabled={!!selectedAnswer} 
                   >
                     {ans}
                   </button>
