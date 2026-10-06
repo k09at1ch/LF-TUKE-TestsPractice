@@ -1,4 +1,4 @@
-import Questions from "../../DataSet/ukr_cze_database.json";
+import Questions from "../../DataSet/1000czwords.json";
 import { useState } from "react";
 import "./CZ.css";
 
