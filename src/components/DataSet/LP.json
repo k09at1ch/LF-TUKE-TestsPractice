@@ -1,4 +1,302 @@
 [
-  { "id": 1, "question": "Test1", "answer": "Tst" },
-  { "id": 2, "question": "Test1", "answer": "Tst" }
+  {
+    "question": "Čo je to aviatika?",
+    "answer": "Odvetvie vedeckej a technickej činnosti zaoberajúce sa lietaním pomocou strojov a zariadení."
+  },
+  {
+    "question": "Ktorý z nasledujúcich významov prislúcha pojmu legislatíva?",
+    "answer": "Príprava a tvorba zákonov a právnych predpisov."
+  },
+  {
+    "question": "Aká je jedna zo základných funkcií práva v spoločnosti?",
+    "answer": "Vytvárať a zabezpečovať poriadok a stabilitu."
+  },
+  {
+    "question": "Čo je charakteristické pre kontinentálny systém práva?",
+    "answer": "Základným prameňom práva je zákon ako všeobecne záväzný normatívny právny akt"
+  },
+  {
+    "question": "V ktorom právnom systéme sudca právo nielen aplikuje, ale ho svojimi rozhodnutiami aj tvorí?",
+    "answer": "Anglo-americký systém práva."
+  },
+  {
+    "question": "Čo je základným formálnym prameňom islamského práva s najvyššou právnou silou?",
+    "answer": "Koran"
+  },
+  {
+    "question": "Ktorý prameň práva je historicky najstarší a označuje sa ako nepísaný zákon?",
+    "answer": "Právna obyčaj"
+  },
+  {
+    "question": "Pre ktorú oblasť majú najväčšie opodstatnenie normatívne zmluvy?",
+    "answer": "Pre oblasť medzinárodného práva."
+  },
+  {
+    "question": "Čo je to precedens?",
+    "answer": "Rozhodnutie súdu, ktorým sa rieši prípad doteraz právne neregulovaný a stáva sa záväzným pre budúcnosť"
+  },
+  {
+    "question": "Do ktorých troch druhov systémov možno rozdeliť právo podľa územnej pôsobnosti v SR?",
+    "answer": "Medzinárodné, vnútroštátne a Európske právo."
+  },
+  {
+    "question": "Akým typom systému je medzinárodné právo z hľadiska povahy noriem?",
+    "answer": "Systémom koordinačnej povahy, kde sú si subjekty rovnocenné"
+  },
+  {
+    "question": "Ktorý subjekt je považovaný za základný subjekt medzinárodného práva?",
+    "answer": "Štát"
+  },
+  {
+    "question": "Čo je základom vzniku nového pravidla v medzinárodnom práve?",
+    "answer": "Súhlasný prejav vôle minimálne dvoch subjektov medzinárodného práva."
+  },
+  {
+    "question": "Na aké dve hlavné skupiny sa delia subjekty vnútroštátneho práva?",
+    "answer": "Fyzické osoby a právnické osoby"
+  },
+  {
+    "question": "Na akom princípe sú zalozené normy verejného práva?",
+    "answer": "Na princípe nadriadenosti a podriadenosti."
+  },
+  {
+    "question": "Ktoré právne odvetvie v SR upravuje organizáciu a cinnost' verejnej správy?",
+    "answer": "Správne (administratívne) právo."
+  },
+  {
+    "question": "Čo upravuje konfesné právo?",
+    "answer": "Postavenie registrovaných cirkví a náboženských spoločností v štáte."
+  },
+  {
+    "question": "Ktorá zásada platí pri súkromnom práve?",
+    "answer": "Zásada rovnosti účastníkov súkromnoprávnych vzťahov."
+  },
+  {
+    "question": "Čo tvorí tzv. primárne právo Európskej únie?",
+    "answer": "Zakladajúce zmluvy (napr. Zmluva o EÚ)."
+  },
+  {
+    "question": "Aká je hlavná vlastnost' Nariadenia EÚ?",
+    "answer": "Je všeobecné, záväzné v celom rozsahu a priamo uplatniteľné v členských štátoch."
+  },
+  {
+    "question": "Čo je priznané pre Smernicu EÚ?",
+    "answer": "Zaväzuje členské štáty k dosiahnutiu cieľa, ale ponecháva im voľbu formy a prostriedkov (vyžaduje transpozíciu)."
+  },
+  {
+    "question": "Ktorá agentúra EÚ sa specializuje na bezpeenost' letectva?",
+    "answer": "EASA."
+  },
+  {
+    "question": "Aky charakter majú spravidla medzinárodné právne normy v oblasti letectvavydávané napr. ICAO?",
+    "answer": "Odporúčací charakter (za účelom unifikácie pravidiel)."
+  },
+  {
+    "question": "Čo je úlohou národnych leteckých zákonov?",
+    "answer": "Definovať národné letecké autority a základné pravidlá činnosti vo vzdušnom priestore krajiny"
+  },
+  {
+    "question": "Preco je unifikácia pravidiel v letectve dôlezitá?",
+    "answer": "Pre zaistenie bezpečnosti leteckej dopravy v globálnom meradle"
+  },
+  {
+    "question": "Čo sa v histórii letectva považuje za úplne prvú oficiálnu legislatívnu normu?",
+    "answer": "Nariadenie parížskej polície o balónoch (1784)"
+  },
+  {
+    "question": "Ktorá konferencia bola prvým politickým úsilím o rozvoj medzinárodného leteckého práva?",
+    "answer": "Parížska diplomatická konferencia (1910)"
+  },
+  {
+    "question": "Aký hlavný princíp ohľadom vzdušného priestoru ustanovil Parížsky dohovor z roku 1919?",
+    "answer": "Absolútnu a výlučnú suverenitu národa nad jeho vzdušným priestorom"
+  },
+  {
+    "question": "Ktorá medzinárodná organizácia vznikla ako výsledok Parížskeho dohovoru (1919)?",
+    "answer": "CINA"
+  },
+  {
+    "question": "Z akého dôvodu Madridský dohovor (1926) nikdy nevstúpil do platnosti?",
+    "answer": "Pre nedostatočný počet ratifikácií"
+  },
+  {
+    "question": "Čím sa Havanský dohovor (1928) výrazne líšil od Parížskeho dohovoru?",
+    "answer": "Neobsahoval žiadne jednotné technické normy"
+  },
+  {
+    "question": "Na čo sa primárne zameriaval Varšavský dohovor z roku 1929?",
+    "answer": "Na zjednotenie pravidiel o zodpovednosti dopravcu v medzinárodnej preprave"
+  },
+  {
+    "question": "Ktorý dohovor je v súčasnosti považovaný za primárny zdroj leteckého práva?",
+    "answer": "Chicagský dohovor (1944)"
+  },
+  {
+    "question": "Kto je depozitárom Chicagského dohovoru (1944)?",
+    "answer": "Vláda USA vo Washingtone D.C."
+  },
+  {
+    "question": "Čo v histórii ICAO predstavovala organizácia PICAO?",
+    "answer": "Dočasnú organizáciu počas ratifikačného procesu Chicagského dohovoru"
+  },
+  {
+    "question": "Koľko technických príloh (Annexov) má v súčasnosti Chicagský dohovor?",
+    "answer": "19"
+  },
+  {
+    "question": "Ktorá letecká sloboda definuje právo preletieť cez územie iného štátu bez pristátia?",
+    "answer": "Prvá sloboda"
+  },
+  {
+    "question": "Čo umožňuje lietadlu Druhá sloboda vzduchu?",
+    "answer": "Pristáť na území iného štátu na neprevádzkové (technické) účely"
+  },
+  {
+    "question": "Ktorý dohovor v roku 2003 nahradil zastaraný Varšavský systém zodpovednosti?",
+    "answer": "Montrealský dohovor (1999)"
+  },
+  {
+    "question": "Čo v letectve vyjadruje skratka SDR?",
+    "answer": "Menovú a účtovnú jednotku Medzinárodného menového fondu"
+  },
+  {
+    "question": "Na čo sa zameriava Tokijský dohovor z roku 1963?",
+    "answer": "Na priestupky a činy spáchané na palube lietadla"
+  },
+  {
+    "question": "Akú dôležitú právomoc priznal veliteľovi lietadla Tokijský dohovor (1963)?",
+    "answer": "Právo obmedziť osobu ohrozujúcu bezpečnosť alebo poriadok"
+  },
+  {
+    "question": "Ktorý dohovor ako prvý definoval únos lietadla (nezákonné zmocnenie sa) ako trestný čin?",
+    "answer": "Haagsky dohovor (1970)"
+  },
+  {
+    "question": "Čo je hlavným predmetom Montrealského dohovoru z roku 1971 (Dohovor o sabotáži)?",
+    "answer": "Potláčanie nezákonných činov proti bezpečnosti (napr. ničenie lietadiel)"
+  },
+  {
+    "question": "Na čo slúži Montrealský dohovor z roku 1991?",
+    "answer": "Na povinné chemické označovanie plastických výbušnín pri výrobe"
+  },
+  {
+    "question": "Ktorý dohovor reagoval na útoky z 11. septembra 2001 kriminalizáciou použitia lietadla ako zbrane?",
+    "answer": "Pekinský dohovor (2010)"
+  },
+  {
+    "question": "Ktorá technická príloha (Annex) k Chicagskému dohovoru sa zaoberá bezpečnosťou letectva (Security)?",
+    "answer": "Annex 17"
+  },
+  {
+    "question": "Čo v letectve znamená pojem „kabotáž“?",
+    "answer": "Preprava medzi mestami na území jedného štátu cudzím dopravcom"
+  },
+  {
+    "question": "Prečo Spojené štáty americké neboli pozvané na diplomatickú konferenciu v roku 1910?",
+    "answer": "Neboli považované za schopné doletieť do Európy"
+  },
+  {
+    "question": "V koľkých oficiálnych jazykoch je v súčasnosti Chicagský dohovor rovnako autentický?",
+    "answer": "V šiestich (anglický, francúzsky, španielsky, ruský, arabský, čínsky)"
+  },
+  {
+    "question": "Čo v užšom a najčastejšie používanom zmysle slova zahŕňa pojem medzinárodná organizácia?",
+    "answer": "Len medzinárodné vládne organizácie."
+  },
+  {
+    "question": "Ktorý typ organizácie sa vyznačuje tým, že sa členské krajiny vzdali časti svojich národných kompetencií v jej prospech?",
+    "answer": "Nadnárodná (nadštátna) organizácia."
+  },
+  {
+    "question": "Ktorá z uvedených organizácií patrí podľa rozsahu pôsobnosti medzi univerzalistické?",
+    "answer": "ICAO."
+  },
+  {
+    "question": "Ktorá organizácia je v zdrojoch uvedená ako príklad hybridnej organizácie (vládny aj nevládny charakter)?",
+    "answer": "Medzinárodný červený kríž."
+  },
+  {
+    "question": "Na základe ktorého dohovoru bola v roku 1919 založená organizácia CINA?",
+    "answer": "Parížsky dohovor."
+  },
+  {
+    "question": "Kto bol prvým a jediným generálnym tajomníkom počas celej existencie organizácie CINA/ICAN?",
+    "answer": "Albert Roper."
+  },
+  {
+    "question": "V ktorom meste sa nachádza sídlo Medzinárodnej organizácie pre civilné letectvo (ICAO)?",
+    "answer": "Montreal."
+  },
+  {
+    "question": "Koľko pracovných jazykov oficiálne používa organizácia ICAO?",
+    "answer": "6."
+  },
+  {
+    "question": "Ktorý orgán ICAO je najvyšší a schádza sa najmenej raz za tri roky?",
+    "answer": "Zhromaždenie."
+  },
+  {
+    "question": "Koľko členských štátov tvorí Radu ICAO?",
+    "answer": "36."
+  },
+  {
+    "question": "Ktorý úrad v rámci Sekretariátu ICAO riadi stratégie v oblasti bezpečnosti a kapacity letovej prevádzky?",
+    "answer": "Úrad pre leteckú navigáciu (ANB)."
+  },
+  {
+    "question": "Kde sídli regionálna kancelária ICAO pre Európu a severoatlantický región (EUR/NAT)?",
+    "answer": "Paríž."
+  },
+  {
+    "question": "V reakcii na akú technickú zmenu v letectve vznikla organizácia EUROCONTROL?",
+    "answer": "Zavádzanie prúdových lietadiel do prevádzky."
+  },
+  {
+    "question": "Ktorý orgán EUROCONTROL-u je najvyšším rozhodovacím orgánom a schvaľuje ročný rozpočet?",
+    "answer": "Stála komisia."
+  },
+  {
+    "question": "Ktoré štáty tvoria Maastrichtskú koordinačnú skupinu (MCG) v rámci EUROCONTROL-u?",
+    "answer": "Belgicko, Nemecko, Luxembursko, Holandsko."
+  },
+  {
+    "question": "Kde sa nachádza sídlo Agentúry Európskej únie pre bezpečnosť letectva (EASA)?",
+    "answer": "Kolín nad Rýnom."
+  },
+  {
+    "question": "Aký je jediný pracovný jazyk agentúry EASA?",
+    "answer": "Angličtina."
+  },
+  {
+    "question": "Na aké dlhé funkčné obdobie je vymenúvaný výkonný riaditeľ EASA?",
+    "answer": "5 rokov."
+  },
+  {
+    "question": "Ktorý orgán EASA rozhoduje o odvolaniach voči vyšetrovaní podnikov či regulácii poplatkov?",
+    "answer": "Odvolacia rada."
+  },
+  {
+    "question": "Čo je hlavným poslaním Európskej konferencie pre civilné letectvo (ECAC)?",
+    "answer": "Podpora rozvoja bezpečného a udržateľného európskeho systému leteckej dopravy."
+  },
+  {
+    "question": "Ako často sa pravidelne schádza Plenárne zasadnutie ECAC v Štrasburgu?",
+    "answer": "Raz za tri roky."
+  },
+  {
+    "question": "Ktorá organizácia je špecializovanou agentúrou Africkej únie pre civilné letectvo?",
+    "answer": "AFCAC."
+  },
+  {
+    "question": "V ktorom meste sídlia organizácie AFCAC aj ASECNA?",
+    "answer": "Dakar."
+  },
+  {
+    "question": "Aký je pracovný jazyk organizácie ASECNA?",
+    "answer": "Francúzština."
+  },
+  {
+    "question": "Ktorý orgán je najvyšším v organizácii ASECNA?",
+    "answer": "Výbor ministrov."
+  }
 ]
