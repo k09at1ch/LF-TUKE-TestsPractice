@@ -72,7 +72,7 @@ export function English() {
       setCorrectAnswer(updatedQuestions[newIndex].answer);
 
       answerSetting(newIndex, updatedQuestions);
-    }, 1000);
+    }, 2000);
   };
 
   const startTest = () => {
