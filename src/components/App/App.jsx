@@ -3,7 +3,6 @@ import "./App.css";
 import { useState } from "react";
 import { InsertedFile } from "../Main/insertingFile/InsertingFilePattern";
 import { AddData } from "../Main/addingData/AddingData";
-import insert from "../DataSet/insert2-15LP.json";
 import eng from "../DataSet/Eng.json";
 import LP from "../DataSet/LP.json";
 import LaDI from "../DataSet/ladi.json";
@@ -12,35 +11,33 @@ import cz from "../DataSet/1000czwords.json";
 import "./App.css";
 function App() {
   const [components, setComponents] = useState(() => {
-    if (localStorage.getItem("componentData")) {
-      return JSON.parse(localStorage.getItem("componentData"));
-    } else {
-      localStorage.setItem(
-        "componentData",
-        JSON.stringify([
-          { name: "English", questionsFile: eng },
-          { name: "LP", questionsFile: LP },
-          { name: "LaDI", questionsFile: LaDI },
-          { name: "Ekonomika", questionsFile: eko },
-          { name: "CZ", questionsFile: cz },
-          { name: "InsertedFile", questionsFile: insert },
-        ]),
-      );
-      return [
-        { name: "English", questionsFile: eng },
-        { name: "LP", questionsFile: LP },
-        { name: "LaDI", questionsFile: LaDI },
-        { name: "Ekonomika", questionsFile: eko },
-        { name: "CZ", questionsFile: cz },
-        { name: "InsertedFile", questionsFile: insert },
-      ];
+    const initialComponents = [
+      { id: 1, name: "English", questionsFile: eng },
+      { id: 2, name: "LP", questionsFile: LP },
+      { id: 3, name: "LaDI", questionsFile: LaDI },
+      { id: 4, name: "Ekonomika", questionsFile: eko },
+      { id: 5, name: "CZ", questionsFile: cz },
+    ];
+    if (localStorage.getItem("fileData")) {
+      const storedData = JSON.parse(localStorage.getItem("fileData"));
+      const storedComponents = storedData.map((item, index) => ({
+        id: index + 7,
+        name: item.name,
+        questionsFile: item.data,
+      }));
+      return [...initialComponents, ...storedComponents];
     }
+    return initialComponents;
   });
+
+  const handleAddComponent = (newComponent) => {
+    setComponents((prevComponents) => [...prevComponents, newComponent]);
+  };
   return (
     <>
       <div className="h">Adding Data</div>
       <div>
-        <AddData />
+        <AddData category="niga" movingDataUp={handleAddComponent} />
       </div>
       <ul className="componentList" style={{ padding: 0 }}>
         {components.map((comp, index) => (
@@ -49,6 +46,29 @@ function App() {
               category={comp.name}
               questionsFile={comp.questionsFile}
             />
+            {comp.id > 5 && (
+              <button
+                onClick={() => {
+                  const updatedComponents = components.filter(
+                    (_, i) => i !== index,
+                  );
+                  setComponents(updatedComponents);
+                  const customFilesToSave = updatedComponents
+                    .filter((comp) => comp.id > 5)
+                    .map((comp) => ({
+                      name: comp.name,
+                      data: comp.questionsFile,
+                    }));
+
+                  localStorage.setItem(
+                    "fileData",
+                    JSON.stringify(customFilesToSave),
+                  );
+                }}
+              >
+                Delete
+              </button>
+            )}
           </li>
         ))}
       </ul>

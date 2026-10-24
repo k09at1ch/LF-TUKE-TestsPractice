@@ -5,7 +5,7 @@ const getDynamicRandomIndex = (currentLength) => {
   return Math.floor(Math.random() * currentLength);
 };
 
-export function InsertedFile({category, questionsFile}) {
+export function InsertedFile({ category, questionsFile }) {
   const [isGoing, setIsGoing] = useState(false);
   const [aviableQuestions, setAviableQuestions] = useState(questionsFile);
   const [question, setQuestion] = useState(null);
@@ -30,7 +30,10 @@ export function InsertedFile({category, questionsFile}) {
       if (wrongAnswer !== currentQuestionsList[currentIndex].answer) {
         answerCopy.push(wrongAnswer);
       } else {
-        answerCopy.push(currentQuestionsList[(tempIndex + 1) % currentQuestionsList.length].answer);
+        answerCopy.push(
+          currentQuestionsList[(tempIndex + 1) % currentQuestionsList.length]
+            .answer,
+        );
       }
     }
 
@@ -39,10 +42,9 @@ export function InsertedFile({category, questionsFile}) {
   };
 
   const answerSelection = (ans) => {
-  
     if (selectedAnswer) return;
 
-    setSelectedAnswer(ans); 
+    setSelectedAnswer(ans);
     const isCorrect = ans === correctAnswer;
 
     const updatedQuestions = aviableQuestions.filter(
@@ -52,7 +54,7 @@ export function InsertedFile({category, questionsFile}) {
     setAviableQuestions(updatedQuestions);
 
     setTimeout(() => {
-      setSelectedAnswer(null); 
+      setSelectedAnswer(null);
       setQuestionsAskedAmount((prev) => prev + 1);
 
       if (isCorrect) {
@@ -123,13 +125,12 @@ export function InsertedFile({category, questionsFile}) {
           </h3>
           <ul style={{ padding: 0 }} className="buttonList">
             {answer.map((ans, idButton) => {
-            
               let btnColor = "";
               if (selectedAnswer) {
                 if (ans === correctAnswer) {
-                  btnColor = "lime"; 
+                  btnColor = "lime";
                 } else if (ans === selectedAnswer) {
-                  btnColor = "red"; 
+                  btnColor = "red";
                 }
               }
 
