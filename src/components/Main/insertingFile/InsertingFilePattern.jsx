@@ -1,18 +1,17 @@
-import Questions from "../../DataSet/1000czwords.json";
 import { useState } from "react";
-import "./CZ.css";
+import "./inserting.css";
 
 const getDynamicRandomIndex = (currentLength) => {
   return Math.floor(Math.random() * currentLength);
 };
 
-export function CZ() {
+export function InsertedFile({category, questionsFile}) {
   const [isGoing, setIsGoing] = useState(false);
-  const [aviableQuestions, setAviableQuestions] = useState(Questions);
+  const [aviableQuestions, setAviableQuestions] = useState(questionsFile);
   const [question, setQuestion] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState();
   const [answer, setAnswer] = useState([]);
-  
+
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [correctAnswerAmount, setCorrectAnswerAmount] = useState(0);
   const [questionsAskedAmount, setQuestionsAskedAmount] = useState(0);
@@ -25,13 +24,13 @@ export function CZ() {
     answerCopy.push(currentQuestionsList[currentIndex].answer);
 
     for (let i = 0; i < 3; i++) {
-      const tempIndex = getDynamicRandomIndex(Questions.length);
-      const wrongAnswer = Questions[tempIndex].answer;
+      const tempIndex = getDynamicRandomIndex(currentQuestionsList.length);
+      const wrongAnswer = currentQuestionsList[tempIndex].answer;
 
       if (wrongAnswer !== currentQuestionsList[currentIndex].answer) {
         answerCopy.push(wrongAnswer);
       } else {
-        answerCopy.push(Questions[(tempIndex + 1) % Questions.length].answer);
+        answerCopy.push(currentQuestionsList[(tempIndex + 1) % currentQuestionsList.length].answer);
       }
     }
 
@@ -40,7 +39,7 @@ export function CZ() {
   };
 
   const answerSelection = (ans) => {
-
+  
     if (selectedAnswer) return;
 
     setSelectedAnswer(ans); 
@@ -72,7 +71,7 @@ export function CZ() {
       setCorrectAnswer(updatedQuestions[newIndex].answer);
 
       answerSetting(newIndex, updatedQuestions);
-    }, 1000);
+    }, 2000);
   };
 
   const startTest = () => {
@@ -83,19 +82,19 @@ export function CZ() {
     setQuestionsAskedAmount(0);
     setSelectedAnswer(null);
 
-    const firstIndex = getDynamicRandomIndex(Questions.length);
-    setAviableQuestions(Questions);
-    setQuestion(Questions[firstIndex].question);
-    setCorrectAnswer(Questions[firstIndex].answer);
+    const firstIndex = getDynamicRandomIndex(questionsFile.length);
+    setAviableQuestions(questionsFile);
+    setQuestion(questionsFile[firstIndex].question);
+    setCorrectAnswer(questionsFile[firstIndex].answer);
 
-    answerSetting(firstIndex, Questions);
+    answerSetting(firstIndex, questionsFile);
     setIsGoing(true);
   };
 
   return (
     <div>
       =====================================================================
-      <h1 className="h">CZ words</h1>
+      <h1 className="h">{category}</h1>
       <button
         onClick={startTest}
         style={{
@@ -118,12 +117,13 @@ export function CZ() {
             {question}
           </h2>
           <h3>
-            Questions answered {questionsAskedAmount}/{Questions.length}
+            Questions answered {questionsAskedAmount}/{questionsFile.length}
             <br />
             score: {correctAnswerAmount}/{questionsAskedAmount}
           </h3>
           <ul style={{ padding: 0 }} className="buttonList">
             {answer.map((ans, idButton) => {
+            
               let btnColor = "";
               if (selectedAnswer) {
                 if (ans === correctAnswer) {
@@ -139,7 +139,7 @@ export function CZ() {
                     style={{ backgroundColor: btnColor }}
                     className="button"
                     onClick={() => answerSelection(ans)}
-                    disabled={!!selectedAnswer} 
+                    disabled={!!selectedAnswer}
                   >
                     {ans}
                   </button>

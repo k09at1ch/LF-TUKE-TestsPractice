@@ -1,0 +1,102 @@
+51-75: 
+,
+  {
+    "question": "Čo v užšom a najčastejšie používanom zmysle slova zahŕňa pojem medzinárodná organizácia?",
+    "answer": "Len medzinárodné vládne organizácie."
+  },
+  {
+    "question": "Ktorý typ organizácie sa vyznačuje tým, že sa členské krajiny vzdali časti svojich národných kompetencií v jej prospech?",
+    "answer": "Nadnárodná (nadštátna) organizácia."
+  },
+  {
+    "question": "Ktorá z uvedených organizácií patrí podľa rozsahu pôsobnosti medzi univerzalistické?",
+    "answer": "ICAO."
+  },
+  {
+    "question": "Ktorá organizácia je v zdrojoch uvedená ako príklad hybridnej organizácie (vládny aj nevládny charakter)?",
+    "answer": "Medzinárodný červený kríž."
+  },
+  {
+    "question": "Na základe ktorého dohovoru bola v roku 1919 založená organizácia CINA?",
+    "answer": "Parížsky dohovor."
+  },
+  {
+    "question": "Kto bol prvým a jediným generálnym tajomníkom počas celej existencie organizácie CINA/ICAN?",
+    "answer": "Albert Roper."
+  },
+  {
+    "question": "V ktorom meste sa nachádza sídlo Medzinárodnej organizácie pre civilné letectvo (ICAO)?",
+    "answer": "Montreal."
+  },
+  {
+    "question": "Koľko pracovných jazykov oficiálne používa organizácia ICAO?",
+    "answer": "6."
+  },
+  {
+    "question": "Ktorý orgán ICAO je najvyšší a schádza sa najmenej raz za tri roky?",
+    "answer": "Zhromaždenie."
+  },
+  {
+    "question": "Koľko členských štátov tvorí Radu ICAO?",
+    "answer": "36."
+  },
+  {
+    "question": "Ktorý úrad v rámci Sekretariátu ICAO riadi stratégie v oblasti bezpečnosti a kapacity letovej prevádzky?",
+    "answer": "Úrad pre leteckú navigáciu (ANB)."
+  },
+  {
+    "question": "Kde sídli regionálna kancelária ICAO pre Európu a severoatlantický región (EUR/NAT)?",
+    "answer": "Paríž."
+  },
+  {
+    "question": "V reakcii na akú technickú zmenu v letectve vznikla organizácia EUROCONTROL?",
+    "answer": "Zavádzanie prúdových lietadiel do prevádzky."
+  },
+  {
+    "question": "Ktorý orgán EUROCONTROL-u je najvyšším rozhodovacím orgánom a schvaľuje ročný rozpočet?",
+    "answer": "Stála komisia."
+  },
+  {
+    "question": "Ktoré štáty tvoria Maastrichtskú koordinačnú skupinu (MCG) v rámci EUROCONTROL-u?",
+    "answer": "Belgicko, Nemecko, Luxembursko, Holandsko."
+  },
+  {
+    "question": "Kde sa nachádza sídlo Agentúry Európskej únie pre bezpečnosť letectva (EASA)?",
+    "answer": "Kolín nad Rýnom."
+  },
+  {
+    "question": "Aký je jediný pracovný jazyk agentúry EASA?",
+    "answer": "Angličtina."
+  },
+  {
+    "question": "Na aké dlhé funkčné obdobie je vymenúvaný výkonný riaditeľ EASA?",
+    "answer": "5 rokov."
+  },
+  {
+    "question": "Ktorý orgán EASA rozhoduje o odvolaniach voči vyšetrovaní podnikov či regulácii poplatkov?",
+    "answer": "Odvolacia rada."
+  },
+  {
+    "question": "Čo je hlavným poslaním Európskej konferencie pre civilné letectvo (ECAC)?",
+    "answer": "Podpora rozvoja bezpečného a udržateľného európskeho systému leteckej dopravy."
+  },
+  {
+    "question": "Ako často sa pravidelne schádza Plenárne zasadnutie ECAC v Štrasburgu?",
+    "answer": "Raz za tri roky."
+  },
+  {
+    "question": "Ktorá organizácia je špecializovanou agentúrou Africkej únie pre civilné letectvo?",
+    "answer": "AFCAC."
+  },
+  {
+    "question": "V ktorom meste sídlia organizácie AFCAC aj ASECNA?",
+    "answer": "Dakar."
+  },
+  {
+    "question": "Aký je pracovný jazyk organizácie ASECNA?",
+    "answer": "Francúzština."
+  },
+  {
+    "question": "Ktorý orgán je najvyšším v organizácii ASECNA?",
+    "answer": "Výbor ministrov."
+  }
