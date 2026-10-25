@@ -18,22 +18,21 @@ export function InsertedFile({ category, questionsFile }) {
 
   const [finished, setFinished] = useState(false);
 
+  const permanentQuestions = questionsFile;
+
   const answerSetting = (currentIndex, currentQuestionsList) => {
+    //пуш правильної відповіді
     const answerCopy = [];
-
     answerCopy.push(currentQuestionsList[currentIndex].answer);
+    //додавання 3 неправильних відповідей
+    if (permanentQuestions.length >= 4) {
+      while (answerCopy.length < 4) {
+        const tempIndex = getDynamicRandomIndex(permanentQuestions.length);
+        const randomAnswer = permanentQuestions[tempIndex].answer;
 
-    for (let i = 0; i < 3; i++) {
-      const tempIndex = getDynamicRandomIndex(currentQuestionsList.length);
-      const wrongAnswer = currentQuestionsList[tempIndex].answer;
-
-      if (wrongAnswer !== currentQuestionsList[currentIndex].answer) {
-        answerCopy.push(wrongAnswer);
-      } else {
-        answerCopy.push(
-          currentQuestionsList[(tempIndex + 1) % currentQuestionsList.length]
-            .answer,
-        );
+        if (!answerCopy.includes(randomAnswer)) {
+          answerCopy.push(randomAnswer);
+        }
       }
     }
 
@@ -95,37 +94,45 @@ export function InsertedFile({ category, questionsFile }) {
 
   return (
     <div>
-      =====================================================================
-      <h1 className="h">{category}</h1>
-      <button
-        onClick={startTest}
-        style={{
-          width: "fit-content",
-          height: "fit-content",
-          padding: "10px",
-          borderRadius: "15px",
-          border: "1px solid black",
-          backgroundColor: "pink",
-        }}
-      >
-        Start test
-      </button>
-      <br />
+      {/* ===================================================================== */}
+      <div className="cardCenter">
+        <h1 className="h">{category}</h1>
+        {isGoing ? (
+          //hidden div to prevent clicking on the start button while the test is ongoing
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: "-999999",
+              opacity: 0,
+              width: "1px",
+              height: "1px",
+            }}
+          ></div>
+        ) : (
+          <button
+            onClick={startTest}
+            className="startButton"
+          >
+            Start test
+          </button>
+        )}
+      </div>
       =====================================================================
       {isGoing ? (
         <div>
-          <h2>
-            <span style={{ fontWeight: 400, fontSize: "75%" }}>Question:</span>{" "}
+          <h2 className="cardCenter">
             {question}
           </h2>
-          <h3>
-            Questions answered {questionsAskedAmount}/{questionsFile.length}
+          <h3 style={{margin: 0}}>
+            Question: {questionsAskedAmount + 1}/{questionsFile.length}
             <br />
             score: {correctAnswerAmount}/{questionsAskedAmount}
           </h3>
           <ul style={{ padding: 0 }} className="buttonList">
             {answer.map((ans, idButton) => {
-              let btnColor = "";
+              let btnColor = "#3B82F6";
               if (selectedAnswer) {
                 if (ans === correctAnswer) {
                   btnColor = "lime";
@@ -148,14 +155,14 @@ export function InsertedFile({ category, questionsFile }) {
               );
             })}
           </ul>
-          =====================================================================
+          {/* ===================================================================== */}
         </div>
       ) : null}
       <div>
         {finished ? (
-          <div>
+          <div style={{ fontWeight: 700, fontSize: "24px" }}>
             Test Finished, score: {correctAnswerAmount}/{questionsAskedAmount}{" "}
-            <br /> =======================
+            {/* <br /> ======================= */}
           </div>
         ) : (
           <div></div>

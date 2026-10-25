@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import "./App.css";
 import { useState } from "react";
 import { InsertedFile } from "../Main/insertingFile/InsertingFilePattern";
@@ -8,8 +7,8 @@ import LP from "../DataSet/LP.json";
 import LaDI from "../DataSet/ladi.json";
 import eko from "../DataSet/Ekonomika.json";
 import cz from "../DataSet/1000czwords.json";
-import "./App.css";
 function App() {
+  
   const [components, setComponents] = useState(() => {
     const initialComponents = [
       { id: 1, name: "English", questionsFile: eng },
@@ -34,8 +33,8 @@ function App() {
     setComponents((prevComponents) => [...prevComponents, newComponent]);
   };
   return (
-    <>
-      <div className="h">Adding Data</div>
+    <div >
+      {/* <div style={{position: "absolute", zIndex: "-999", width: "100%", height: "100vh", backgroundColor: "black"}}></div> */}
       <div>
         <AddData category="niga" movingDataUp={handleAddComponent} />
       </div>
@@ -48,6 +47,7 @@ function App() {
             />
             {comp.id > 5 && (
               <button
+                className="deleteButton"
                 onClick={() => {
                   const updatedComponents = components.filter(
                     (_, i) => i !== index,
@@ -72,7 +72,7 @@ function App() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 
