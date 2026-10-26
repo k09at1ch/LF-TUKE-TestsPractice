@@ -1,62 +1,102 @@
 [
-    {
-    "question": "Čo v užšom a najčastejšie používanom zmysle slova zahŕňa pojem medzinárodná organizácia?",
-    "answer": "Len medzinárodné vládne organizácie."
+  {
+    "question": "Kde sa nachádza sídlo organizácie ASECNA (Agentúra pre bezpečnost leteckej prevádzky v Afrike a na Madagaskare)?",
+    "answer": "Dakar, Senegal"
   },
   {
-    "question": "Ktorý typ organizácie sa vyznačuje tým, že sa členské krajiny vzdali časti svojich národných kompetencií v jej prospech?",
-    "answer": "Nadnárodná (nadštátna) organizácia."
+    "question": "Aký je jediný pracovný jazyk medzinárodnej organizácie ASECNA?",
+    "answer": "Francuzština"
   },
   {
-    "question": "Ktorá z uvedených organizácií patrí podľa rozsahu pôsobnosti medzi univerzalistické?",
-    "answer": "ICAO."
+    "question": "Ktorý orgán je najvyšším orgánom organizácie ASECNA?",
+    "answer": "Vybor ministrov"
   },
   {
-    "question": "Ktorá organizácia je v zdrojoch uvedená ako príklad hybridnej organizácie (vládny aj nevládny charakter)?",
-    "answer": "Medzinárodný červený kríž."
+    "question": "Kde sídli stredoamerická organizácia pre riadenie leteckej prevádzky COCESNA?",
+    "answer": "Tegucigalpa, Honduras"
   },
   {
-    "question": "Na základe ktorého dohovoru bola v roku 1919 založená organizácia CINA?",
-    "answer": "Parížsky dohovor."
+    "question": "Ktorá agentúra v rámci štruktúry COCESNA je zodpovedná za letecký výcvik a sídli v Salvádore?",
+    "answer": "ICCAE"
   },
   {
-    "question": "Kto bol prvým a jediným generálnym tajomníkom počas celej existencie organizácie CINA/ICAN?",
-    "answer": "Albert Roper."
+    "question": "Čo je hlavnou úlohou Latinskoamerickej komisie pre civilné letectvo (LACAC)?",
+    "answer": "Upevnenie nezávislosti a rozvoj leteckej dopravy v Latinskej Amerike"
   },
   {
-    "question": "V ktorom meste sa nachádza sídlo Medzinárodnej organizácie pre civilné letectvo (ICAO)?",
-    "answer": "Montreal."
+    "question": "V ktorom meste má sídlo organizácia LACAC?",
+    "answer": "Lima, Peru"
   },
   {
-    "question": "Koľko pracovných jazykov oficiálne používa organizácia ICAO?",
-    "answer": "6."
+    "question": "Ktorý z nasledujúcich jazykov NIE JE pracovným jazykom organizácie LACAC?",
+    "answer": "Francuzština"
   },
   {
-    "question": "Ktorý orgán ICAO je najvyšší a schádza sa najmenej raz za tri roky?",
-    "answer": "Zhromaždenie."
+    "question": "Kde sa nachádza sídlo Arabskej organizácie civilného letectva (ACAO)?",
+    "answer": "Rabat-Suezy, Maroko"
   },
   {
-    "question": "Koľko členských štátov tvorí Radu ICAO?",
-    "answer": "36."
+    "question": "Ako často sa stretáva Valné zhromaždenie ACAO za účelom prijatia plánov a rozpočtu?",
+    "answer": "Každé dva roky"
   },
   {
-    "question": "Ktorý úrad v rámci Sekretariátu ICAO riadi stratégie v oblasti bezpečnosti a kapacity letovej prevádzky?",
-    "answer": "Úrad pre leteckú navigáciu (ANB)."
+    "question": "V ktorom meste sídli Medzinárodné združenie leteckých dopravcov (IATA)?",
+    "answer": "Montreal"
   },
   {
-    "question": "Kde sídli regionálna kancelária ICAO pre Európu a severoatlantický región (EUR/NAT)?",
-    "answer": "Paríž."
+    "question": "Ktorá oblast je pre IATA prioritou číslo jedna?",
+    "answer": "Bezpečnosť"
   },
   {
-    "question": "V reakcii na akú technickú zmenu v letectve vznikla organizácia EUROCONTROL?",
-    "answer": "Zavádzanie prúdových lietadiel do prevádzky."
+    "question": "Kto tvorí Radu guvernérov IATA?",
+    "answer": "Najviac 31 osôb volených spomedzi členov a generálny riaditel’"
   },
   {
-    "question": "Ktorý orgán EUROCONTROL-u je najvyšším rozhodovacím orgánom a schvaľuje ročný rozpočet?",
-    "answer": "Stála komisia."
+    "question": "Čím sa zaoberá Medzinárodné zdruzenie civilných letísk (ACI)?",
+    "answer": "Podporovaním záujmov letísk a rozvojom ich politík"
   },
   {
-    "question": "Ktoré štáty tvoria Maastrichtskú koordinačnú skupinu (MCG) v rámci EUROCONTROL-u?",
-    "answer": "Belgicko, Nemecko, Luxembursko, Holandsko."
+    "question": "Aký je pracovný jazyk organizácie ACI?",
+    "answer": "Angličtina"
+  },
+  {
+    "question": "Ktorá časť organizácie ACI je vrcholným riadiacim orgánom so sídlom v Montreale?",
+    "answer": "ACI World"
+  },
+  {
+    "question": "Co je hlavným poslaním Medzinárodnej federácie združenia dopravných pilotov (IFALPA)?",
+    "answer": "Koordinovat zdruzenia dopravných pilotov v technických a profesionálnych otázkach"
+  },
+  {
+    "question": "Kolko pilotov v súčasnosti zastupuje organizácia IFALPA?",
+    "answer": "Viac ako 100 000"
+  },
+  {
+    "question": "Kde sa nachádza sídlo Medzinárodnej spoločnosti pre letecké telekomunikácie(SITA)?",
+    "answer": "Zeneva, Svajčiarsko"
+  },
+  {
+    "question": "V kolkých jazykoch poskytuje SITA svoje služby po celom svete?",
+    "answer": "Vo viac ako 60"
+  },
+  {
+    "question": "Aký je hlavný ciel' Medzinárodnej leteckej federácie (FAI)?",
+    "answer": "Rozvoj športového letectva a ratifikácia Rekordov"
+  },
+  {
+    "question": "V ktorom meste sídli organizácia FAI?",
+    "answer": "Lausanne"
+  },
+  {
+    "question": "Ktorý orgán je najvyšším orgánom FAI a schádza sa raz ročne?",
+    "answer": "Generálna konferencia"
+  },
+  {
+    "question": "Na základe akého kritéria sa Organizácie ako FAI alebo IFALPA označujú za \"nevládne\"?",
+    "answer": "Sú vytvárané na základe spoločných záujmov alebo zastupovania profesných skupín"
+  },
+  {
+    "question": "Ktorá z uvedených organizácií je popredným špecialistom na IT procesy, batožinu a registráciu cestujúcich?",
+    "answer": "SITA"
   }
 ]

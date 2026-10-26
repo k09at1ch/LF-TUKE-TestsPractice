@@ -126,7 +126,7 @@ export function InsertedFile({ category, questionsFile }) {
             {question}
           </h2>
           <h3 style={{margin: 0}}>
-            Question: {questionsAskedAmount + 1}/{questionsFile.length}
+            Question: {questionsAskedAmount}/{questionsFile.length}
             <br />
             score: {correctAnswerAmount}/{questionsAskedAmount}
           </h3>

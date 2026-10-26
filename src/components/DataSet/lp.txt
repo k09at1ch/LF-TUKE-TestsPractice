@@ -1,43 +1,4 @@
 51-75: 
 ,
   
-  {
-    "question": "Kde sa nachádza sídlo Agentúry Európskej únie pre bezpečnosť letectva (EASA)?",
-    "answer": "Kolín nad Rýnom."
-  },
-  {
-    "question": "Aký je jediný pracovný jazyk agentúry EASA?",
-    "answer": "Angličtina."
-  },
-  {
-    "question": "Na aké dlhé funkčné obdobie je vymenúvaný výkonný riaditeľ EASA?",
-    "answer": "5 rokov."
-  },
-  {
-    "question": "Ktorý orgán EASA rozhoduje o odvolaniach voči vyšetrovaní podnikov či regulácii poplatkov?",
-    "answer": "Odvolacia rada."
-  },
-  {
-    "question": "Čo je hlavným poslaním Európskej konferencie pre civilné letectvo (ECAC)?",
-    "answer": "Podpora rozvoja bezpečného a udržateľného európskeho systému leteckej dopravy."
-  },
-  {
-    "question": "Ako často sa pravidelne schádza Plenárne zasadnutie ECAC v Štrasburgu?",
-    "answer": "Raz za tri roky."
-  },
-  {
-    "question": "Ktorá organizácia je špecializovanou agentúrou Africkej únie pre civilné letectvo?",
-    "answer": "AFCAC."
-  },
-  {
-    "question": "V ktorom meste sídlia organizácie AFCAC aj ASECNA?",
-    "answer": "Dakar."
-  },
-  {
-    "question": "Aký je pracovný jazyk organizácie ASECNA?",
-    "answer": "Francúzština."
-  },
-  {
-    "question": "Ktorý orgán je najvyšším v organizácii ASECNA?",
-    "answer": "Výbor ministrov."
-  }
+  

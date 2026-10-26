@@ -31,6 +31,9 @@
   opacity: 0.8;
   transform: scale(1);
 }
+.button:hover:disabled{
+  color: white;
+}
 @keyframes pulse {
   0% {
     transform: scale(1);

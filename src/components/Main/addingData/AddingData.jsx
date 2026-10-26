@@ -30,7 +30,11 @@ export function AddData({ category, movingDataUp }) {
       try {
         const jsonData = JSON.parse(fileContent);
 
-        movingDataUp({id: Date.now(), name: category, questionsFile: jsonData });
+        movingDataUp({
+          id: Date.now(),
+          name: category,
+          questionsFile: jsonData,
+        });
 
         //local storage for added data
         setAddedData((prevData) => {
@@ -54,16 +58,10 @@ export function AddData({ category, movingDataUp }) {
   return (
     <div>
       <form onSubmit={addFileHandling}>
-        <input
-          accept=".json"
-          name="fileInput"
-          type="file"
-          placeholder="add .json file"
-        />
-        <input type="text" name="categoryText" />
+        <input accept=".json" name="fileInput" type="file" />
+        <input type="text" placeholder="add .json file" name="categoryText" />
         <button type="submit">Add Data</button>
       </form>
-
     </div>
   );
 }
