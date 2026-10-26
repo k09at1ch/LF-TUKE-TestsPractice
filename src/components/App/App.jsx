@@ -33,7 +33,7 @@ function App() {
     setComponents((prevComponents) => [...prevComponents, newComponent]);
   };
   return (
-    <div >
+    <div className="fullApp">
       {/* <div style={{position: "absolute", zIndex: "-999", width: "100%", height: "100vh", backgroundColor: "black"}}></div> */}
       <div style={{display: "flex", flexDirection: "row", gap:"10px"}}>
         <AddData category="niga" movingDataUp={handleAddComponent} />

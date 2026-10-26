@@ -4,6 +4,8 @@
   list-style: none;
   gap: 50px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .componentListItem {
   max-width: min-content;
@@ -11,8 +13,6 @@
   border: 2px solid #b7c8de;
   border-radius: 10px;
   background-color: rgb(227, 255, 255);
-  align-items: center;
-  justify-content: center;
   display: block;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);
