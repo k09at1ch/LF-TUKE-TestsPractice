@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./inserting.css";
 
 const getDynamicRandomIndex = (currentLength) => {
@@ -12,6 +12,11 @@ export function InsertedFile({ category, questionsFile }) {
   const [correctAnswer, setCorrectAnswer] = useState();
   const [answer, setAnswer] = useState([]);
 
+  const answerAmount = useRef(
+    localStorage.getItem("answerAmount")
+      ? Number(localStorage.getItem("answerAmount"))
+      : 4,
+  );
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [correctAnswerAmount, setCorrectAnswerAmount] = useState(0);
   const [questionsAskedAmount, setQuestionsAskedAmount] = useState(0);
@@ -19,14 +24,20 @@ export function InsertedFile({ category, questionsFile }) {
   const [finished, setFinished] = useState(false);
 
   const permanentQuestions = questionsFile;
+  useEffect(() => {
+    const storedAmount = localStorage.getItem("answerAmount");
+    answerAmount.current = storedAmount ? Number(storedAmount) : 4;
+    console.log("Current answer amount:", answerAmount.current);
+  }, [aviableQuestions]);
 
   const answerSetting = (currentIndex, currentQuestionsList) => {
     //пуш правильної відповіді
     const answerCopy = [];
     answerCopy.push(currentQuestionsList[currentIndex].answer);
+
     //додавання 3 неправильних відповідей
-    if (permanentQuestions.length >= 4) {
-      while (answerCopy.length < 4) {
+    if (permanentQuestions.length >= answerAmount.current) {
+      while (answerCopy.length < answerAmount.current) {
         const tempIndex = getDynamicRandomIndex(permanentQuestions.length);
         const randomAnswer = permanentQuestions[tempIndex].answer;
 
@@ -72,7 +83,7 @@ export function InsertedFile({ category, questionsFile }) {
       setCorrectAnswer(updatedQuestions[newIndex].answer);
 
       answerSetting(newIndex, updatedQuestions);
-    }, 2000);
+    }, 500);
   };
 
   const startTest = () => {
@@ -111,10 +122,7 @@ export function InsertedFile({ category, questionsFile }) {
             }}
           ></div>
         ) : (
-          <button
-            onClick={startTest}
-            className="startButton"
-          >
+          <button onClick={startTest} className="startButton">
             Start test
           </button>
         )}
@@ -122,10 +130,8 @@ export function InsertedFile({ category, questionsFile }) {
       =====================================================================
       {isGoing ? (
         <div>
-          <h2 className="cardCenter">
-            {question}
-          </h2>
-          <h3 style={{margin: 0}}>
+          <h2 className="cardCenter">{question}</h2>
+          <h3 style={{ margin: 0 }}>
             Question: {questionsAskedAmount}/{questionsFile.length}
             <br />
             score: {correctAnswerAmount}/{questionsAskedAmount}

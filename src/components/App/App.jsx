@@ -37,7 +37,7 @@ function App() {
       {/* <div style={{position: "absolute", zIndex: "-999", width: "100%", height: "100vh", backgroundColor: "black"}}></div> */}
       <div style={{display: "flex", flexDirection: "row", gap:"10px"}}>
         <AddData category="niga" movingDataUp={handleAddComponent} />
-        <span style={{fontSize: "16px"}}>Json array must have at least 4 entries(minimum 4 questions and 4 answers).</span>
+        <span style={{fontSize: "16px"}}>JSON array must contain at least of selected answer amount. <br/> If not, infinite loop will be created.</span>
       </div>
       <ul className="componentList" style={{ padding: 0 }}>
         {components.map((comp, index) => (

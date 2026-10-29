@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export function AddData({ category, movingDataUp }) {
+export function AddData({ movingDataUp }) {
   const [addedData, setAddedData] = useState(() => {
     if (localStorage.getItem("fileData")) {
       return JSON.parse(localStorage.getItem("fileData"));
@@ -54,14 +54,39 @@ export function AddData({ category, movingDataUp }) {
 
     reader.readAsText(file);
   };
-
+  const addindAnswerLength = (e) => {
+    e.preventDefault();
+    const number = e.target.elements.answerAmount.value;
+    localStorage.setItem("answerAmount", number);
+    e.target.reset();
+  };
+  const resetAnswersAmount = () => {
+    localStorage.removeItem("answerAmount");
+    const inputElement = document.getElementById("1488");
+    if (inputElement) {
+      inputElement.value = "";
+    }
+  };
   return (
-    <div>
+    <div style={{display: "flex", flexDirection:"row"}}>
       <form onSubmit={addFileHandling}>
         <input accept=".json" name="fileInput" type="file" />
         <input type="text" placeholder="add .json file" name="categoryText" />
         <button type="submit">Add Data</button>
       </form>
+      <form action="" onSubmit={addindAnswerLength}>
+        <input
+          type="number"
+          default={4}
+          name="answerAmount"
+          id="1488"
+          placeholder="Input answer amount"
+        />
+        <button type="submit">Set</button>
+      </form>
+      <button onClick={resetAnswersAmount}>
+        Reset answers amount
+      </button>
     </div>
   );
 }
