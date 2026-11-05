@@ -83,7 +83,7 @@ export function InsertedFile({ category, questionsFile }) {
       setCorrectAnswer(updatedQuestions[newIndex].answer);
 
       answerSetting(newIndex, updatedQuestions);
-    }, 500);
+    }, 1000);
   };
 
   const startTest = () => {

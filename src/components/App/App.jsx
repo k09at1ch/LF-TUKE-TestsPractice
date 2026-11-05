@@ -7,8 +7,9 @@ import LP from "../DataSet/LP.json";
 import LaDI from "../DataSet/ladi.json";
 import eko from "../DataSet/Ekonomika.json";
 import cz from "../DataSet/1000czwords.json";
+import ro from "../DataSet/1000roWords.json";
+import de from "../DataSet/1000deWords.json";
 function App() {
-  
   const [components, setComponents] = useState(() => {
     const initialComponents = [
       { id: 1, name: "English", questionsFile: eng },
@@ -16,6 +17,8 @@ function App() {
       { id: 3, name: "LaDI", questionsFile: LaDI },
       { id: 4, name: "Ekonomika", questionsFile: eko },
       { id: 5, name: "CZ", questionsFile: cz },
+      { id: 6, name: "RO", questionsFile: ro },
+      { id: 7, name: "DE", questionsFile: de },
     ];
     if (localStorage.getItem("fileData")) {
       const storedData = JSON.parse(localStorage.getItem("fileData"));
@@ -35,9 +38,12 @@ function App() {
   return (
     <div className="fullApp">
       {/* <div style={{position: "absolute", zIndex: "-999", width: "100%", height: "100vh", backgroundColor: "black"}}></div> */}
-      <div style={{display: "flex", flexDirection: "row", gap:"10px"}}>
+      <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
         <AddData category="niga" movingDataUp={handleAddComponent} />
-        <span style={{fontSize: "16px"}}>JSON array must contain at least of selected answer amount. <br/> If not, infinite loop will be created.</span>
+        <span style={{ fontSize: "16px" }}>
+          JSON array must contain at least of selected answer amount. <br /> If
+          not, infinite loop will be created.
+        </span>
       </div>
       <ul className="componentList" style={{ padding: 0 }}>
         {components.map((comp, index) => (
@@ -46,7 +52,7 @@ function App() {
               category={comp.name}
               questionsFile={comp.questionsFile}
             />
-            {comp.id > 5 && (
+            {comp.id > 7 && (
               <button
                 className="deleteButton"
                 onClick={() => {
@@ -55,7 +61,7 @@ function App() {
                   );
                   setComponents(updatedComponents);
                   const customFilesToSave = updatedComponents
-                    .filter((comp) => comp.id > 5)
+                    .filter((comp) => comp.id > 7)
                     .map((comp) => ({
                       name: comp.name,
                       data: comp.questionsFile,

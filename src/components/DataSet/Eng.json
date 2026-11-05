@@ -80,7 +80,7 @@
   { "id": 79, "question": "SPECI", "answer": "Aviation selected special weather report" },
   { "id": 80, "question": "SR", "answer": "Sunrise" },
   { "id": 81, "question": "SRE", "answer": "Surveillance radar element of precision approach radar system" },
-  { "id": 82, "question": "SS", "answer": "Sunset" },
+  { "id": 82, "question": "⚡⚡卐SS卐⚡⚡", "answer": "Sunset" },
   { "id": 83, "question": "SSR", "answer": "Secondary surveillance radar" },
   { "id": 84, "question": "STAR", "answer": "Standard (instrument) arrival" },
   { "id": 85, "question": "SWY", "answer": "Stopway" },
